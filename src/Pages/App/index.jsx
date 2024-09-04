@@ -8,6 +8,7 @@ import NorFound from '../NorFound'
 import Signin from '../Signin'
 import Navbar from '../../compones/Navbar'
 import { ShoppingCartProvider } from '../../Contex'
+import CheckoutSideMenu from '../../compones/CheckoutSideMenu'
 
 
 const AppRoutes = () => {
@@ -16,7 +17,26 @@ const AppRoutes = () => {
       path: "/",
       element: <Home />,
     },
-
+    {
+      path: "/clothes",
+      element: <Home />
+    },
+    {
+      path: "/electronics",
+      element: <Home />
+    },
+    {
+      path: "/furniture",
+      element: <Home />
+    },
+    {
+      path: "/toys",
+      element: <Home />
+    },
+    {
+      path: "/others",
+      element: <Home />
+    },
     {
       path: "/my-Account",
       element: <MyAccount />
@@ -34,6 +54,14 @@ const AppRoutes = () => {
       element: <Signin />
     },
     {
+      path: "/my-orders/last",
+      element: <MyOrder />
+    },
+    {
+      path: "/my-orders/:id",
+      element: <MyOrder />
+    },
+    {
       path: "*",
       element: <NorFound />
     },
@@ -46,12 +74,13 @@ const App = () => {
 
   return (
     <>
-      <ShoppingCartProvider>
-        <BrowserRouter>
-          <AppRoutes />
-          <Navbar />
-        </BrowserRouter>
-      </ShoppingCartProvider>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+        <CheckoutSideMenu />
+      </BrowserRouter>
+    </ShoppingCartProvider>
     </>
   )
 }
